@@ -14,7 +14,7 @@ export type Datasource = {
   authors: Array<DatasourceAuthorType>;
   books: Array<DatasourceBookType>;
   getBooksByAuthorId: (authorId: string) => DatasourceBookType[];
-  getAuthorByBook: (book: DatasourceBookType) => DatasourceAuthorType;
+  getAuthorByBookId: (bookId: string) => DatasourceAuthorType;
 };
 
 const authors: Datasource["authors"] = [
@@ -53,6 +53,8 @@ export const datasource: Datasource = {
 
     return books.filter((book) => book.authorId === author.id);
   },
-  getAuthorByBook: (book) =>
-    authors.find((author) => author.id === book.authorId),
+  getAuthorByBookId: (bookId) => {
+    const book = books.find((book) => book.id === bookId);
+    return authors.find((author) => author.id === book.authorId);
+  },
 };

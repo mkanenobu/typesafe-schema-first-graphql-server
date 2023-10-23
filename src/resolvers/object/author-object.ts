@@ -1,6 +1,6 @@
-import type { Resolvers } from "../../graphql-generated";
+import type { AuthorResolvers } from "../../graphql-generated";
 
-export const authorObject: Resolvers["Author"] = {
+export const authorObject: AuthorResolvers = {
   id: (parent) => parent.id,
   name: (parent) => parent.name,
   birthYear: (parent) => parent.birthYear,
